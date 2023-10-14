@@ -1,3 +1,4 @@
+db = new Mongo().getDB("splitfree")
 db.createUser(
         {
             user: "splitfree",
@@ -11,7 +12,6 @@ db.createUser(
         }
 );
 
-db = new Mongo().getDB("splitfree")
 db.createCollection('expenses', {capped: false})
 
 db.test.insert([{
