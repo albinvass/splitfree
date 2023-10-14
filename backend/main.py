@@ -2,10 +2,12 @@ import boto3
 import time
 import pymongo
 import uuid
+import datetime
 from typing import Dict
 from typing_extensions import Annotated
 from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.responses import StreamingResponse
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import (
     BaseModel,
     UUID4,
@@ -25,6 +27,12 @@ s3 = boto3.client('s3',
 )
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 ExpenseId = Annotated[
     UUID4,
@@ -40,13 +48,20 @@ class Expense(BaseModel):
     expense_id: ExpenseId
     description: str
     category: str
-    timestamp: int
+    date: datetime.date
     price: float
     currency: str
     paid_by: str
     split_type: str
     debtors: Dict[str, float]
     receipt_url: str | None = None
+
+    @field_validator("date")
+    @classmethod
+    def validate_date(cls, date):
+        if isinstance(date, datetime.date):
+            return date.strftime("%Y-%m-%d")
+        return date
 
 @app.get("/api/expense/new")
 async def get_expense():

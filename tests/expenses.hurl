@@ -9,7 +9,7 @@ POST http://localhost:8000/api/expense
     "expense_id": "{{expense_id}}",
     "description": "Hemköp",
     "category": "Livsmedel",
-    "timestamp": 1697211595,
+    "date": 2023-10-14,
     "price": 357,
     "currency": "sek",
     "paid_by": "Albin",
