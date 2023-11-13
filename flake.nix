@@ -20,6 +20,13 @@
         projectDir = ./backend;
         extras = [];
       };
+      splitfree-frontend = pkgs.mkYarnPackage {
+        name = "splitfree-frontend";
+        src = ./frontend;
+        packageJSON = ./frontend/package.json;
+        yarnLock = ./frontend/yarn.lock;
+        yarnNix = ./frontend/yarn.nix;
+      };
     };
   });
 }
