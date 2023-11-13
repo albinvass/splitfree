@@ -1,5 +1,6 @@
 import boto3
 import time
+import uvicorn
 import pymongo
 import uuid
 import datetime
@@ -105,3 +106,6 @@ async def get_receipt(expense_id: ExpenseId):
         return StreamingResponse(result["Body"].iter_chunks())
     except Exception as e:
         print(e)
+
+def main():
+    uvicorn.run("app.main:app", host="0.0.0.0")

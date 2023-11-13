@@ -1,17 +1,22 @@
 [tool.poetry]
-name = "backend"
+name = "splitfree-backend"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
-readme = "README.md"
+authors = ["Albin Vass <albin.vass@gmail.com>"]
+packages = [
+  {include = "app"}
+]
 
 [tool.poetry.dependencies]
 python = "^3.11"
 pymongo = "^4.5.0"
-fastapi = {extras = ["all"], version = "^0.103.2"}
+fastapi = {extras = [], version = "^0.103.2"}
 python-multipart = "^0.0.6"
 boto3 = "^1.28.63"
+uvicorn = "^0.24.0.post1"
 
+[tool.poetry.scripts]
+splitfree-backend = "app.main:main"
 
 [build-system]
 requires = ["poetry-core"]
