@@ -4,12 +4,14 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    dream2nix.url = "github:nix-community/dream2nix";
+
     poetry2nix = {
       url = "github:nix-community/poetry2nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { self, nixpkgs, flake-utils, poetry2nix }: 
+  outputs = { nixpkgs, flake-utils, poetry2nix, ... }: 
   flake-utils.lib.eachDefaultSystem(system:
   let
     pkgs = import nixpkgs { inherit system; };
