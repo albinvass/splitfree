@@ -4,10 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     devenv.url = "github:cachix/devenv";
-    poetry2nix = {
-      url = "github:nix-community/poetry2nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
   outputs = { flake-parts, ...}@inputs: 
   flake-parts.lib.mkFlake { inherit inputs; } {
@@ -19,17 +15,7 @@
           python.poetry.enable = true;
           javascript.enable = true;
         };
-
       };
-      packages =
-        let
-          inherit (inputs.poetry2nix.lib.mkPoetry2Nix { inherit pkgs; }) mkPoetryApplication;
-        in {
-          backend = mkPoetryApplication {
-            projectDir = ./backend;
-            extras = [];
-          };
-        };
     };
   };
 }
