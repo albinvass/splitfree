@@ -15,7 +15,10 @@
     imports = [ inputs.devenv.flakeModule ];
     perSystem = { config, pkgs, ... }: {
       devenv.shells.default = {
-        packages = with pkgs; [ nodejs_21 ];
+        packages = with pkgs; [
+          nodejs_21
+          poetry
+        ];
       };
       packages =
         let
