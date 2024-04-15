@@ -2,6 +2,7 @@
 {
   packages = with pkgs; [
     atlas
+    hurl
   ];
   services.postgres.enable = true;
   languages = {
