@@ -20,6 +20,7 @@ func (Expense) Fields() []ent.Field {
         field.UUID("uuid", uuid.UUID{}).
             Default(uuid.New),
         field.Text("description"),
+        field.JSON("shares", map[uuid.UUID]float64{}),
         field.Enum("category").
             NamedValues(
                 "Groceries", "GROCERIES",
@@ -40,9 +41,7 @@ func (Expense) Edges() []ent.Edge {
             Ref("expenses").
             Unique().
             Required(),
-        edge.From("split", Split.Type).
-            Ref("expense").
-            Unique().
+        edge.To("debtors", User.Type).
             Required(),
     }
 }
