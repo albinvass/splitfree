@@ -4,7 +4,7 @@ import (
     "context"
     "log"
 
-    "splitfree/ent"
+    "github.com/albinvass/splitfree/cmd/splitfree-backend/ent"
 
     _ "github.com/lib/pq"
 )

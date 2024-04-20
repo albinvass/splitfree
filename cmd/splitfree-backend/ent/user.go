@@ -4,7 +4,7 @@ package ent
 
 import (
 	"fmt"
-	"splitfree/ent/user"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/user"
 	"strings"
 	"time"
 

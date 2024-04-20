@@ -4,6 +4,13 @@
     atlas
     hurl
   ];
+
+  processes = {
+    splitfree-backend = {
+      exec = "go run ./cmd/splitfree-backend";
+    };
+  };
+
   services.postgres = {
     enable = true;
     listen_addresses = "127.0.0.1";
@@ -15,6 +22,7 @@
       GRANT ALL ON SCHEMA public TO splitfree;
     '';
   };
+
   languages = {
     go.enable = true;
   };

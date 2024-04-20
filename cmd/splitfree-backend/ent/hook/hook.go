@@ -5,7 +5,7 @@ package hook
 import (
 	"context"
 	"fmt"
-	"splitfree/ent"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent"
 )
 
 // The ExpenseFunc type is an adapter to allow the use of ordinary

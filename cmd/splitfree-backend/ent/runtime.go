@@ -3,9 +3,9 @@
 package ent
 
 import (
-	"splitfree/ent/expense"
-	"splitfree/ent/schema"
-	"splitfree/ent/user"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/expense"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/schema"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/user"
 	"time"
 
 	"github.com/google/uuid"

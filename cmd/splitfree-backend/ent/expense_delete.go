@@ -4,8 +4,8 @@ package ent
 
 import (
 	"context"
-	"splitfree/ent/expense"
-	"splitfree/ent/predicate"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/expense"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/predicate"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"

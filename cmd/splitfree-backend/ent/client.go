@@ -9,10 +9,10 @@ import (
 	"log"
 	"reflect"
 
-	"splitfree/ent/migrate"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/migrate"
 
-	"splitfree/ent/expense"
-	"splitfree/ent/user"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/expense"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/user"
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect"

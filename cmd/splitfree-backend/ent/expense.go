@@ -5,8 +5,8 @@ package ent
 import (
 	"encoding/json"
 	"fmt"
-	"splitfree/ent/expense"
-	"splitfree/ent/user"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/expense"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/user"
 	"strings"
 	"time"
 

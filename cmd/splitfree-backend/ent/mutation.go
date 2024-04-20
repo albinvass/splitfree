@@ -6,9 +6,9 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"splitfree/ent/expense"
-	"splitfree/ent/predicate"
-	"splitfree/ent/user"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/expense"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/predicate"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/user"
 	"sync"
 	"time"
 

@@ -1,4 +1,4 @@
-module splitfree
+module github.com/albinvass/splitfree
 
 go 1.21.7
 
