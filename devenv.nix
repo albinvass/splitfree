@@ -8,6 +8,11 @@
   processes = {
     splitfree-backend = {
       exec = "go run ./cmd/splitfree-backend";
+      process-compose = {
+        depends_on = {
+          postgres = { condition = "process_healthy"; };
+        };
+      };
     };
   };
 
