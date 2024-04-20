@@ -19,4 +19,5 @@ func main() {
     if err := client.Schema.Create(ctx); err != nil {
         log.Fatalf("failed creating schema resources: %v", err)
     }
+    log.Print("successfully created schema")
 }
