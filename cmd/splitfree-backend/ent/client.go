@@ -11,13 +11,12 @@ import (
 
 	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/migrate"
 
-	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/expense"
-	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/user"
-
 	"entgo.io/ent"
 	"entgo.io/ent/dialect"
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/expense"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/user"
 )
 
 // Client is the client that holds all ent builders.

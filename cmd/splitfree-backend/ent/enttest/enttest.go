@@ -4,13 +4,13 @@ package enttest
 
 import (
 	"context"
+
 	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent"
 	// required by schema hooks.
 	_ "github.com/albinvass/splitfree/cmd/splitfree-backend/ent/runtime"
 
-	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/migrate"
-
 	"entgo.io/ent/dialect/sql/schema"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/migrate"
 )
 
 type (

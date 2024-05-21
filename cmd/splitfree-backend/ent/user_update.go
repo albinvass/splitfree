@@ -6,13 +6,13 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/expense"
-	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/predicate"
-	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/user"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/expense"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/predicate"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/user"
 	"github.com/google/uuid"
 )
 

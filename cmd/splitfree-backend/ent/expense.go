@@ -5,13 +5,13 @@ package ent
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/expense"
-	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/user"
 	"strings"
 	"time"
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/expense"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/user"
 	"github.com/google/uuid"
 )
 

@@ -4,12 +4,12 @@ package ent
 
 import (
 	"context"
-	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/expense"
-	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/predicate"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/expense"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/predicate"
 )
 
 // ExpenseDelete is the builder for deleting a Expense entity.

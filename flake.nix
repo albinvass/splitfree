@@ -10,6 +10,19 @@
       perSystem = { config, self', inputs', pkgs, system, ...}:
       {
         packages = pkgs.callPackage ./packages.nix {};
+        nixosModules = {
+          splitfree-backend = { ... }: {
+            systemd.services.splitfree-backend = {
+              wantedBy = [ "multi-user.target" ];
+              serviceConfig = {
+                DynamicUser = true;
+                ExecStart = [
+                  "${self'.packages.splitfree-backend}/bin/splitfree-backend"
+                ];
+              };
+            };
+          };
+        };
       };
     };
 }

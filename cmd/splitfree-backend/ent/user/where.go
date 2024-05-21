@@ -3,11 +3,11 @@
 package user
 
 import (
-	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/predicate"
 	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/predicate"
 	"github.com/google/uuid"
 )
 

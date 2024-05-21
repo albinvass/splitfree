@@ -5,6 +5,7 @@ package hook
 import (
 	"context"
 	"fmt"
+
 	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent"
 )
 

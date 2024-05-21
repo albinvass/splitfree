@@ -7,13 +7,13 @@ import (
 	"errors"
 	"fmt"
 	"reflect"
-	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/expense"
-	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/user"
 	"sync"
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/expense"
+	"github.com/albinvass/splitfree/cmd/splitfree-backend/ent/user"
 )
 
 // ent aliases to avoid import conflicts in user's code.
