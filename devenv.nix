@@ -3,11 +3,12 @@
   packages = with pkgs; [
     atlas
     hurl
+    golangci-lint
   ];
 
   processes = {
     splitfree-backend = {
-      exec = "go run ./cmd/splitfree-backend";
+      exec = "go run ./splitfree-backend";
       process-compose = {
         depends_on = {
           postgres = { condition = "process_healthy"; };
