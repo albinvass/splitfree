@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"github.com/albinvass/splitfree/splitfree-backend/ent"
+
 	"github.com/albinvass/splitfree/splitfree-backend/ent/user"
 	"github.com/danielgtaylor/huma/v2"
 	"github.com/danielgtaylor/huma/v2/adapters/humago"

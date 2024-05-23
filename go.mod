@@ -1,4 +1,4 @@
-module github.com/albinvass/splitfree/splitfree-backend
+module github.com/albinvass/splitfree
 
 go 1.21.7
 
