@@ -1,5 +1,15 @@
 package main
 
+import (
+	"context"
+	"fmt"
+
+	"github.com/google/uuid"
+
+	"github.com/albinvass/splitfree/splitfree-backend/ent"
+	"github.com/albinvass/splitfree/splitfree-backend/ent/user"
+)
+
 type CreateExpenseInput struct {
 	Body struct {
 		PaidBy uuid.UUID `json:"paid_by" doc:"Paid By"`
@@ -26,14 +36,14 @@ func (s *SplitfreeBackend) CreateExpense(ctx context.Context, input *CreateExpen
 		SetDescription("test").
 		SetShares(shares).
 		SetCategory("GROCERIES").
-		SetPaidBy(input.PaidBy).
+		SetPaidBy(input.Body.PaidBy).
 		AddDebtors(user).
 		Save(ctx)
 	if err != nil {
 		return nil, err
 	}
 
-	resp := &ExpenseOutput{}
+	resp := &CreateExpenseOutput{}
 	resp.Body.Message = fmt.Sprintf("Cost: %s", expense.Cost)
 	return resp, nil
 }
