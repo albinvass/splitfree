@@ -5,11 +5,19 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/albinvass/splitfree/splitfree-backend/authenticator"
+	"github.com/albinvass/splitfree/splitfree-backend/callback"
 	"github.com/albinvass/splitfree/splitfree-backend/ent"
+	"github.com/albinvass/splitfree/splitfree-backend/login"
+	"github.com/albinvass/splitfree/splitfree-backend/logout"
+	"github.com/albinvass/splitfree/splitfree-backend/user"
 
-	"github.com/albinvass/splitfree/splitfree-backend/ent/user"
+	schemaUser "github.com/albinvass/splitfree/splitfree-backend/ent/user"
 	"github.com/danielgtaylor/huma/v2"
-	"github.com/danielgtaylor/huma/v2/adapters/humago"
+	"github.com/danielgtaylor/huma/v2/adapters/humachi"
+
+	"github.com/go-chi/chi/v5"
+
 	"github.com/danielgtaylor/huma/v2/humacli"
 	log "github.com/sirupsen/logrus"
 )
@@ -40,7 +48,7 @@ func (s *SplitfreeBackend) Close() error {
 }
 
 func (s *SplitfreeBackend) ensureUser(ctx context.Context, name string, email string) error {
-	user, err := s.dbClient.User.Query().Where(user.Name(name)).All(ctx)
+	user, err := s.dbClient.User.Query().Where(schemaUser.Name(name)).All(ctx)
 	if err != nil {
 		return err
 	}
@@ -75,18 +83,29 @@ func (s *SplitfreeBackend) Run() error {
 		}
 
 		if err := s.InitDB(ctx); err != nil {
-			panic(err)
+			panic(fmt.Errorf("failed to initialize database: %v", err))
 		}
 
 		log.Info("successfully created schema")
 
-		r := http.NewServeMux()
-		api := humago.New(r, huma.DefaultConfig("My API", "1.0.0"))
+		r := chi.NewMux()
+		config := huma.DefaultConfig("My API", "1.0.0")
+		api := humachi.New(r, config)
+
+		auth, err := authenticator.New()
+		if err != nil {
+			panic(err)
+		}
+
+		huma.Get(api, "/login", login.Handler(auth))
+		huma.Get(api, "/callback", callback.Handler(auth))
+		huma.Get(api, "/user", user.Handler)
+		huma.Get(api, "/logout", logout.Handler)
+
 		huma.Put(api, "/api/expense", s.CreateExpense)
 		huma.Get(api, "/api/expenses", s.GetExpenses)
 
 		huma.Get(api, "/api/users", s.GetUsers)
-
 		hooks.OnStart(func() {
 			log.Infof("listening on: %s", s.listenAddress)
 			http.ListenAndServe(fmt.Sprintf(":%d", options.Port), r)

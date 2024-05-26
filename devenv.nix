@@ -10,6 +10,13 @@
     splitfree-backend = {
       exec = "go run ./splitfree-backend";
       process-compose = {
+        environment = [
+          ''AUTH0_CALLBACK_URL=''${AUTH0_CALLBACK_URL}''
+          ''AUTH0_DOMAIN=''${AUTH0_DOMAIN}''
+          ''AUTH0_CLIENT_ID=''${AUTH0_CLIENT_ID}''
+          ''AUTH0_CLIENT_SECRET=''${AUTH0_CLIENT_SECRET}''
+          "SPLITFREE_CANONICAL_URL=http://localhost:3000"
+        ];
         depends_on = {
           postgres = { condition = "process_healthy"; };
         };
